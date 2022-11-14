@@ -44,13 +44,6 @@ jobs:
         # the client with data, and retrieves data
         run: node test/dbClient.js
         # Environment variable used by the `client.js` script to create a new Redis client.
-      - name: Use Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm test
-
         env:
           # The hostname used to communicate with the Redis service container
           REDIS_HOST: redis
