@@ -22,6 +22,9 @@ jobs:
       redis:
         # Docker Hub image
         image: redis
+        ports:
+          # Opens tcp port 6379 on the host and service container
+          - 6379:6379
         # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
@@ -42,7 +45,11 @@ jobs:
       - name: Connect to Redis
         # Runs a script that creates a Redis client, populates
         # the client with data, and retrieves data
+<<<<<<< HEAD
         run: node src/dbClient.js
+=======
+        run: node client.js
+>>>>>>> 7ae4dff (fix: fix workflow)
         # Environment variable used by the `client.js` script to create a new Redis client.
         env:
           # The hostname used to communicate with the Redis service container
